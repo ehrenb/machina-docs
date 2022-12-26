@@ -6,6 +6,10 @@
 Welcome to machina's documentation!
 ===================================
 
+.. image:: images/machina.drawio.png
+   :width: 400
+   :alt: Alternative text
+
 .. toctree::
    :maxdepth: 8
    :caption: Contents:
