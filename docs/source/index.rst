@@ -7,8 +7,8 @@ Welcome to machina's documentation!
 ===================================
 
 .. image:: images/machina.drawio.png
-   :width: 400
-   :alt: Alternative text
+   :width: 800
+   :alt: architecture
 
 .. toctree::
    :maxdepth: 8
