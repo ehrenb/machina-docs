@@ -1,7 +1,5 @@
-
 # hostname
 https://machina.behren.me
-
 
 file_server {
     root    /machina/docs/build/html
