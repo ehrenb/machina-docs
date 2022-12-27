@@ -12,4 +12,9 @@ RUN rm /tmp/requirements.txt
 COPY docs /machina/docs
 RUN cd /machina/docs && make html
 
-CMD ["caddy", "file-server", "--access-log", "--root", "/machina/docs/build/html"]
+COPY Caddyfile.dev /machina/
+COPY Caddyfile.prod /machina/
+
+# default to prod, override command can be used to
+# invoke with Caddyfile.dev
+CMD ["caddy", "run", "--config", "/machina/Caddyfile.prod"]

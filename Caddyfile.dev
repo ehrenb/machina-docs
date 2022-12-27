@@ -1,0 +1,17 @@
+
+# global block
+{
+    debug
+}
+
+# hostname
+http://localhost
+
+
+file_server {
+    root    /machina/docs/build/html
+}
+
+log {
+    format json
+}
