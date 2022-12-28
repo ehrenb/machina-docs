@@ -37,7 +37,7 @@ Submission
     --verbose, -v
 
 
-Optionally, you can publish your own message to the RabbitMQ Server, with the routing key set to 'Identifier' and a JSON body like the following:
+Optionally, you can publish your own message to the RabbitMQ Server, with the routing key set to 'Identifier' and a JSON body containing a base-64 encoded payload like the following:
 
 .. code-block:: json
 
@@ -49,6 +49,6 @@ Or, to assert a type (must be available in the 'available_types' configuration w
 .. code-block:: json
 
     {
-        "data": "<64encoded_data>",
+        "data": "<b64encoded_data>",
         "type": "apk"
     }
