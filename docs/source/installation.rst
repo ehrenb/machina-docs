@@ -8,11 +8,19 @@ Production
 
 Section is WIP
 
+Clone
+++++++++++
+
+.. code-block:: bash
+
+    git clone https://github.com/ehrenb/machina.git
+
 Update
 ++++++++++
 
 .. code-block:: bash
 
+    cd machina/
     docker compose pull
 
 Development

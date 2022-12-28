@@ -14,6 +14,7 @@ Update
 
 .. code-block:: bash
 
+    cd machina
     docker compose pull
 
 Development
@@ -24,11 +25,11 @@ Update (build)
 
 .. code-block:: bash
 
+    cd machina
     docker compose build base-alpine base-ubuntu && docker compose build
 
 Start
 ++++++++++
-
 
 .. code-block:: bash
 
