@@ -1,5 +1,5 @@
 # hostname
-http://machina.behren.me
+http://machina.behren.me http://www.machina.behren.me
 
 file_server {
     root    /machina/docs/build/html
