@@ -28,6 +28,14 @@ machina.core.worker module
    :undoc-members:
    :show-inheritance:
 
+machina.core.ghidra_worker module
+--------------------------
+
+.. automodule:: machina.core.ghidra_worker
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
 Module contents
 ---------------
 
