@@ -5,7 +5,7 @@ CLI Installation
 -----------------------------------
 
 It is recommended to set up and use a Python 3 virtual environment to 
-isolate dependency installation. Install [virtualenv](https://python-guide-cn.readthedocs.io/en/latest/dev/virtualenvs.html).
+isolate dependency installation. Install `virtualenv <https://python-guide-cn.readthedocs.io/en/latest/dev/virtualenvs.html>`_.
 
 .. code-block:: bash
 
