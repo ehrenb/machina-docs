@@ -39,6 +39,10 @@ Clone
 Build
 ++++++++++
 
+The following command will ensure proper dependency build order
+
 .. code-block:: bash
 
-    docker compose build base-alpine base-ubuntu && docker compose build
+    docker compose build base-alpine base-ubuntu &&\
+        docker compose build base-ghidra &&\
+        docker compose build
