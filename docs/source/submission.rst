@@ -16,7 +16,7 @@ CLI installation
 
 .. code-block:: bash
 
-    cd cli/
+    cd machina/cli/
     python setup.py install
 
 

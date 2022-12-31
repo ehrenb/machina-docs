@@ -3,6 +3,11 @@ Installation
 
 This guide covers the system installation.  For CLI installation, see the "submission" section.
 
+Pre-requisites
+-----------------------------------
+
+- `docker <https://docs.docker.com/engine/install/ubuntu/>`_ (including docker-compose-plugin)
+
 Production
 -----------------------------------
 
