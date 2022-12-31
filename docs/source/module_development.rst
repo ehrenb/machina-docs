@@ -54,13 +54,13 @@ Typically, since workers are handling data published by the Identifier, they inh
 
     {
         "allOf": [{ "$ref": "binary.json"}],
-        "properties": {
+        "properties": {}
     }
 
 YourAnalysisModule.json (configuration)
 -----------------------------------
 
-This top-level configuration file belongs in machina/config/youranalysismodule.json.  This file allows for reconfiguration without rebuilding of images or code.  This file
+This top-level configuration file belongs in machina/configs/workers/youranalysismodule.json.  This file allows for reconfiguration without rebuilding of images or code.  This file
 must be named after the worker class name that it corresponds to.  Configuration data set in this file is made available through the worker module's 'self.config["worker"] attribute.
 Log level is handled by the Worker base class to automatically adjust the subclass logging level.
 
@@ -90,7 +90,7 @@ Other notes
 Republishing
 ++++++++++
 
-Worker modules are not intended to create new objects (e.g. files, binary data) in the database directly, only update elements or create edges (relationships).  
+Worker modules are not intended to create new nodes (e.g. files, binary data) in the database directly, only update elements or create edges (relationships).  
 They should publish any extracted data of interest to the Identifier queue so that it re-enters the pipeline, e.g.:
 
 .. code-block:: python3
@@ -134,12 +134,12 @@ The snippet below is an example of when the Zip analysis module detects that it 
             "origin": {
                 "ts": data['ts'],
                 "md5": data['hashes']['md5'],
-                "id": data['id'], #I think this is the only field needed, we can grab the unique node based on id alone
+                "id": data['id'],
                 "type": data['type']
             },
             'type': 'apk'
         }
 
-    self.publish(json.dumps(data), queues=['Identifier']) # publish to 'Identifier'
+        self.publish(json.dumps(data), queues=['Identifier']) # publish to 'Identifier'
 
 ```  
