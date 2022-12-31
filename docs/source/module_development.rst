@@ -8,11 +8,13 @@ Dockerfile
 
 Base Worker image options
 
-* `behren/machina-base-alpine <https://hub.docker.com/repository/docker/behren/machina-base-alpine>`_  
-* `behren/machina-base-ubuntu <https://hub.docker.com/repository/docker/behren/machina-base-ubuntu>`_
+- `behren/machina-base-alpine <https://hub.docker.com/repository/docker/behren/machina-base-alpine>`_  
+- `behren/machina-base-ubuntu <https://hub.docker.com/repository/docker/behren/machina-base-ubuntu>`_
+- `behren/machina-base-ghidra <https://hub.docker.com/repository/docker/behren/machina-base-ghidra>`_
+    - based from 'behren/machina-base-ubuntu'
 
-The alpine base is preferred, because it is lighter
-    - The ubuntu base makes dependency installation easier, at the cost of image size
+If Ghidra is not required, using the Alpine base is preferred, because it is lighter
+    - The Ubuntu base makes dependency installation easier, at the cost of image size
 
 requirements.txt
 -----------------------------------
@@ -35,6 +37,9 @@ Choose any Machina types (see machina/configs/types.json) your worker module sup
         def __init__(self, *args, **kwargs):
             super(YourAnalysisModule, self).__init__(*args, **kwargs)
             ...
+
+.. note::
+    If 'behren/machina-base-ghidra' was selected as your base, and Pythonic access to Ghidra is desired, see the GhidraWorker base class in the API documentation
 
 YourAnalysisModule.json (schema)
 -----------------------------------
