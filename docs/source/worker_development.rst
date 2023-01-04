@@ -1,4 +1,4 @@
-Module development
+Worker development
 ===================================
 
 Each Worker module roughly contains the following files
