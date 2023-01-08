@@ -43,7 +43,7 @@ Scale worker modules to support parallel analyses
 
 .. code-block:: bash
 
-    docker compose scale identifier=2 androguardanalysis=5
+    docker compose up -d --scale identifier=2 androguardanalysis=5
 
 
 Stop
@@ -64,11 +64,11 @@ System stats
 Services
 -----------------------------------
 
-* OrientDB GUI
+* Neo4j GUI
 
-    - http://127.0.0.1:2480
+    - http://127.0.0.1:7474
     - (default) username: root
-    - (default) password: root
+    - (default) password: tXOCq81bn7QfGTMJMrkQqP4J1
 
 * RabbitMQ Management GUI
 

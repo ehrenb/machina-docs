@@ -2,8 +2,8 @@ Name,Description,Input Types,Repository
 androguard,Extract metadata from an Android Application (APK). Resubmit extracted files,apk,https://github.com/ehrenb/machina-androguard
 binwalk,Unpack known firmware formats and resubmit extracted files,"jffs2, squashfs, lzma, cpio",https://github.com/ehrenb/machina-binwalk
 bz2,Decompress bzip2 data and resubmit extracted files,bz2,https://github.com/ehrenb/machina-bz2
-exif,Extract exifdata from image files,"png, jpeg",https://github.com/ehrenb/machina-exif
-findurls,Extract URLs from any kind of data,all,https://github.com/ehrenb/machina-findurls
+exif,Extract exifdata from image files,"png, jpeg, tiff",https://github.com/ehrenb/machina-exif
+findurls,Extract URLs from any kind of data,all except url,https://github.com/ehrenb/machina-findurls
 ghidra-project-creator,Perform default Ghidra analysis on executable files,"elf, pe",https://github.com/ehrenb/machina-ghidra-project-creator
 gzip,Decompress gzip data and resubmit extracted files,gz,https://github.com/ehrenb/machina-gzip
 identifier,Classify input data and apply Machina type data,all,https://github.com/ehrenb/machina-identifier

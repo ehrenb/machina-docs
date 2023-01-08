@@ -52,3 +52,22 @@ Or, to assert a type (must be available in the 'available_types' configuration w
         "data": "<b64encoded_data>",
         "type": "apk"
     }
+
+Example
+-----------------------------------
+
+Obtain a sample of a jffs2 file system:
+
+
+.. code-block:: bash
+
+    wget https://github.com/ReFirmLabs/binwalk/blob/master/testing/tests/input-vectors/firmware.jffs2
+
+Submit the file
+
+.. code-block:: bash
+
+    python3 bin/machinacli.py submit firmware.jffs2
+
+
+

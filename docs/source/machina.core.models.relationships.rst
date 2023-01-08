@@ -12,10 +12,10 @@ machina.core.models.relationships.extracts module
    :undoc-members:
    :show-inheritance:
 
-machina.core.models.relationships.retypedto module
+machina.core.models.relationships.retyped module
 --------------------------------------------------
 
-.. automodule:: machina.core.models.relationships.retypedto
+.. automodule:: machina.core.models.relationships.retyped
    :members:
    :undoc-members:
    :show-inheritance:
@@ -24,6 +24,14 @@ machina.core.models.relationships.similar module
 ------------------------------------------------
 
 .. automodule:: machina.core.models.relationships.similar
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+   machina.core.models.relationships.base module
+------------------------------------------------
+
+.. automodule:: machina.core.models.relationships.base
    :members:
    :undoc-members:
    :show-inheritance:

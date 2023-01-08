@@ -29,10 +29,30 @@ This file contains the implementation of your worker module. subclass the machin
 Choose any Machina types (see machina/configs/types.json) your worker module supports, or specify '*' for all.  Examples:
 
 .. code-block:: python3
-    :caption: youranalysismodule.py
+    :caption: youranalysismodule.py handles zip data
 
     class YourAnalysisModule(Worker):
-        types = ["zip"] # This worker can handle data typed as 'zip'
+        types = ["zip"]
+
+        def __init__(self, *args, **kwargs):
+            super(YourAnalysisModule, self).__init__(*args, **kwargs)
+            ...
+
+.. code-block:: python3
+    :caption: youranalysismodule.py handles all data types
+
+    class YourAnalysisModule(Worker):
+        types = ["*"]
+
+        def __init__(self, *args, **kwargs):
+            super(YourAnalysisModule, self).__init__(*args, **kwargs)
+            ...
+
+.. code-block:: python3
+    :caption: youranalysismodule.py handles all data types except zip
+
+    class YourAnalysisModule(Worker):
+        types_blacklist = ["zip"]
 
         def __init__(self, *args, **kwargs):
             super(YourAnalysisModule, self).__init__(*args, **kwargs)
@@ -134,7 +154,7 @@ The snippet below is an example of when the Zip analysis module detects that it 
             "origin": {
                 "ts": data['ts'],
                 "md5": data['hashes']['md5'],
-                "id": data['id'],
+                "uid": data['uid'],
                 "type": data['type']
             },
             'type': 'apk'

@@ -4,6 +4,14 @@ machina.core.models.nodes package
 Submodules
 ----------
 
+machina.core.models.nodes.artifact module
+------------------------------------
+
+.. automodule:: machina.core.models.nodes.artifact
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
 machina.core.models.nodes.apk module
 ------------------------------------
 
@@ -16,6 +24,22 @@ machina.core.models.nodes.artifact module
 -----------------------------------------
 
 .. automodule:: machina.core.models.nodes.artifact
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+machina.core.models.nodes.base module
+------------------------------------
+
+.. automodule:: machina.core.models.nodes.base
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+machina.core.models.nodes.cpio module
+------------------------------------
+
+.. automodule:: machina.core.models.nodes.cpio
    :members:
    :undoc-members:
    :show-inheritance:
@@ -92,6 +116,14 @@ machina.core.models.nodes.jpeg module
    :undoc-members:
    :show-inheritance:
 
+machina.core.models.nodes.lzma module
+------------------------------------
+
+.. automodule:: machina.core.models.nodes.lzma
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
 machina.core.models.nodes.macho module
 --------------------------------------
 
@@ -156,10 +188,26 @@ machina.core.models.nodes.rtf module
    :undoc-members:
    :show-inheritance:
 
+machina.core.models.nodes.squashfs module
+------------------------------------
+
+.. automodule:: machina.core.models.nodes.squashfs
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
 machina.core.models.nodes.tar module
 ------------------------------------
 
 .. automodule:: machina.core.models.nodes.tar
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+machina.core.models.nodes.tiff module
+------------------------------------
+
+.. automodule:: machina.core.models.nodes.tiff
    :members:
    :undoc-members:
    :show-inheritance:
