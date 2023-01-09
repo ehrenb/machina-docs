@@ -67,7 +67,7 @@ Services
 * Neo4j GUI
 
     - http://127.0.0.1:7474
-    - (default) username: root
+    - (default) username: neo4j
     - (default) password: tXOCq81bn7QfGTMJMrkQqP4J1
 
 * RabbitMQ Management GUI
