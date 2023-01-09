@@ -7,8 +7,6 @@ Management
 Production
 ++++++++++
 
-Section is WIP
-
 Update
 ~~~~~~~~~~~~~
 

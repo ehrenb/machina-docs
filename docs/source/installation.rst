@@ -11,8 +11,6 @@ Pre-requisites
 Production
 -----------------------------------
 
-Section is WIP
-
 Clone
 ++++++++++
 
