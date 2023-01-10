@@ -61,13 +61,17 @@ Obtain a sample of a jffs2 file system:
 
 .. code-block:: bash
 
-    wget https://github.com/ReFirmLabs/binwalk/blob/master/testing/tests/input-vectors/firmware.jffs2
+    wget https://github.com/ehrenb/machina-test/blob/main/data/squashfs/firmware.squashfs
 
 Submit the file
 
 .. code-block:: bash
 
-    python3 bin/machinacli.py submit firmware.jffs2
+    python3 bin/machinacli.py submit firmware.squashfs
 
 
+After several minutes, all files in the submitted squashfs file are extracted and stored in Neo4J:
 
+.. image:: images/squashfs-graph.png
+    :width: 800
+    :alt: squashfs-neo4j
