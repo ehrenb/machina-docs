@@ -17,3 +17,11 @@ Module contents
    :members:
    :undoc-members:
    :show-inheritance:
+
+Submodules
+---------------
+
+.. automodule:: machina.core.models.utils
+   :members:
+   :undoc-members:
+   :show-inheritance:

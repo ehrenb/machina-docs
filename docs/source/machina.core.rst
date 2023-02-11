@@ -36,6 +36,14 @@ machina.core.ghidra_worker module
    :undoc-members:
    :show-inheritance:
 
+machina.core.periodic_worker module
+--------------------------
+
+.. automodule:: machina.core.periodic_worker
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
 Module contents
 ---------------
 
