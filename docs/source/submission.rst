@@ -61,7 +61,7 @@ Obtain a sample of a jffs2 file system:
 
 .. code-block:: bash
 
-    wget https://github.com/ehrenb/machina-test/blob/main/data/squashfs/firmware.squashfs
+    wget https://github.com/ehrenb/machina-test/raw/main/data/squashfs/firmware.squashfs
 
 Submit the file
 
