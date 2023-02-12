@@ -36,7 +36,7 @@ prioritizes "detailed type" data over "mimetype" for classification.
    administration
    submission
    workers
-   worker_development
+   worker_development/index
 
 .. toctree::
    :maxdepth: 2

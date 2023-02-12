@@ -1,20 +1,29 @@
-Worker development
+Worker Development
 ===================================
 
-Each Worker module roughly contains the following files
+This type of Machina worker triggers an analysis when new files are ingested into the system and tagged with a worker-compatible Machina type.
+
 
 Dockerfile
 -----------------------------------
 
-Base Worker image options
+Install any system dependencies required within your worker's Dockerfile.  There are two base image options provided:
+
+Base image options:
 
 - `behren/machina-base-alpine <https://hub.docker.com/repository/docker/behren/machina-base-alpine>`_  
 - `behren/machina-base-ubuntu <https://hub.docker.com/repository/docker/behren/machina-base-ubuntu>`_
-- `behren/machina-base-ghidra <https://hub.docker.com/repository/docker/behren/machina-base-ghidra>`_
-    - based from 'behren/machina-base-ubuntu'
 
-If Ghidra is not required, using the Alpine base is preferred, because it is lighter
-    - The Ubuntu base makes dependency installation easier, at the cost of image size
+Dockerfile example:
+
+.. code-block:: dockerfile
+    :caption: example dockerfile
+
+    FROM behren/machina-base-ubuntu:latest
+    ...
+    RUN apt update && apt install libz-dev
+    ...
+
 
 requirements.txt
 -----------------------------------
@@ -26,7 +35,10 @@ youranalysismodule.py
 -----------------------------------
 
 This file contains the implementation of your worker module. subclass the machina.core.worker.Worker class, this will ensure your worker module has boilerplate connectivity to the database, RabbitMQ, and configurations.  
-Choose any Machina types (see machina/configs/types.json) your worker module supports, or specify '*' for all.  Examples:
+Choose any Machina types (see 'machina/configs/types.json') your worker module supports, or specify '*' for all.
+The 'callback' function provides your analysis implementation with data that your module is configured to support.  This callback function fires whenever the system identifies a compatible sample.
+
+Examples:
 
 .. code-block:: python3
     :caption: youranalysismodule.py handles zip data
@@ -38,6 +50,9 @@ Choose any Machina types (see machina/configs/types.json) your worker module sup
             super(YourAnalysisModule, self).__init__(*args, **kwargs)
             ...
 
+        def callback(self, data, properties):
+            data = json.loads(data)
+
 .. code-block:: python3
     :caption: youranalysismodule.py handles all data types
 
@@ -47,6 +62,9 @@ Choose any Machina types (see machina/configs/types.json) your worker module sup
         def __init__(self, *args, **kwargs):
             super(YourAnalysisModule, self).__init__(*args, **kwargs)
             ...
+
+        def callback(self, data, properties):
+            data = json.loads(data)
 
 .. code-block:: python3
     :caption: youranalysismodule.py handles all data types except zip
@@ -58,8 +76,11 @@ Choose any Machina types (see machina/configs/types.json) your worker module sup
             super(YourAnalysisModule, self).__init__(*args, **kwargs)
             ...
 
+        def callback(self, data, properties):
+            data = json.loads(data)
+
 .. note::
-    If 'behren/machina-base-ghidra' was selected as your base, and Pythonic access to Ghidra is desired, see the GhidraWorker base class in the API documentation
+    If 'behren/machina-base-ghidra' was selected as your base, and Pythonic access to Ghidra is desired, see the Ghidra Worker Development documentation
 
 YourAnalysisModule.json (schema)
 -----------------------------------
@@ -82,7 +103,7 @@ YourAnalysisModule.json (configuration)
 
 This top-level configuration file belongs in machina/configs/workers/youranalysismodule.json.  This file allows for reconfiguration without rebuilding of images or code.  This file
 must be named after the worker class name that it corresponds to.  Configuration data set in this file is made available through the worker module's 'self.config["worker"] attribute.
-Log level is handled by the Worker base class to automatically adjust the subclass logging level.
+Log level is handled by the Worker base class to automatically adjust the subclass logging level if it is overridden in the configuration.
 
 
 .. code-block:: json
