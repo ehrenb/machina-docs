@@ -1,0 +1,74 @@
+site_name: Machina
+site_author: Branden Ehrenreich
+site_description: Machina Documentation
+copyright: Copyright © 2023 Branden Ehrenreich
+site_url: https://machina.behren.me
+repo_url: https://github.com/ehrenb/machina
+
+theme:
+  name: material
+  features:
+    - navigation.tracking
+    - content.code.copy
+  palette:
+    - scheme: slate
+      toggle:
+        icon: material/weather-night
+        name: Switch to light mode
+    - scheme: default
+      toggle:
+        icon: material/weather-sunny
+        name: Switch to dark mode
+
+plugins:
+  - autorefs
+  - offline
+  - search
+  - mkdocstrings:
+      handlers:
+        python:
+          options:
+            docstring_style: sphinx
+  - glightbox
+  - with-pdf:
+      output_path: ./machina-docs.pdf
+      # cover_logo: 
+  - table-reader
+
+markdown_extensions:
+  - toc:
+      permalink: "#"
+  - admonition
+  - pymdownx.details
+  - pymdownx.superfences
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+
+nav:
+  - Home: index.md
+  - Installation:
+    - System:
+      - Dependencies: installation/system/dependencies.md
+      - Production: installation/system/production.md
+      - Development: installation/system/development.md
+      - Validate: installation/system/validate.md
+    - CLI: 
+      - Dependencies: installation/cli/dependencies.md
+      - Installation: installation/cli/cli.md
+      - Validate: installation/cli/validate.md
+  - Administration: administration/administration.md
+  - Usage: 
+    - Submission: usage/submission.md
+    - Examples:
+      - Firmware (squashfs filesystem): usage/examples/firmware_squashfs.md
+  - Workers: workers/workers.md
+  - Development:
+    - Worker Development: development/worker_development.md
+    - Ghidra Worker Development: development/ghidra_worker_development.md
+    - Periodic Worker Development: development/periodic_worker_development.md
+    - API:
+      - Machina Worker API: development/api/machina_api.md
+
+
