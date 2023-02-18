@@ -13,7 +13,7 @@ Base image options:
 
 Dockerfile example:
 
-```dockerfile linenums="1"
+```dockerfile linenums="1" title="Dockerfile"
 FROM behren/machina-base-ubuntu:latest
 ...
 RUN apt update && apt install libz-dev
@@ -22,8 +22,7 @@ RUN apt update && apt install libz-dev
 
 ## requirements.txt
 
-
-Put any Python 3 requirements required by your worker module into requirements.txt and ensure that you copy requirements.txt into the image and 'pip3 install -r requirements.txt' to install the dependencies
+Put any Python 3 requirements required by your worker module into requirements.txt and ensure that you copy requirements.txt into the image and 'pip3 install -r requirements.txt' to install the dependencies.
 
 ## youranalysismodule.py
 
@@ -72,11 +71,12 @@ class YourAnalysisModule(Worker):
 
 ## YourAnalysisModule.json (schema)
 
-This schema file provides validation constraints that are applied to data incoming to your worker module before it handles the data. The Schema name must match the class name that it belongs to (e.g. for the worker module 'AndroguardAnalysis', there must exist a schema in the schemas directory names 'AndroguardAnalysis.json').
+This schema file provides validation constraints that are applied to data incoming to your worker module before it handles the data.  The Schema name must match the
+class name that it belongs to (e.g. for the worker module 'AndroguardAnalysis').  This file belongs at the top level of your worker's directory, and must be copied within the Dockerfile.
 
 Typically, since workers are handling data published by the Identifier, they inherit from the 'binary.json' schema. Additional input requirements can be specified in "properties"
 
-```json linenums="1" title="contains no additional input validation"
+```json linenums="1" title="images/youranalysismodule/YourAnalyisModule.json.  This module contains no additional input validation"
 {
     "allOf": [{ "$ref": "binary.json"}],
     "properties": {}
@@ -88,7 +88,7 @@ Typically, since workers are handling data published by the Identifier, they inh
 
 This top-level configuration file belongs in machina/configs/workers/youranalysismodule.json.  This file allows for reconfiguration without rebuilding of images or code.  This file must be named after the worker class name that it corresponds to.  Configuration data set in this file is made available through the worker module's 'self.config["worker"] attribute. Log level is handled by the Worker base class to automatically adjust the subclass logging level if it is overridden in the configuration.
 
-```json linenums="1" title="contains additional configurations for hash algorithms to run"
+```json linenums="1" title="machina/configs/workers/YourAnalyisModule.json.  This module contains additional configurations for hash algorithms to run"
 {
     "log_level": "debug",
     "hash_algorithms": ["md5", "sha256"]
