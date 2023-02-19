@@ -24,7 +24,7 @@ Put any Python 3 requirements required by your worker module into requirements.t
 
 ## youranalysismodule.py
 
-This file contains the implementation of your worker module. Subclass the machina.core.periodic_worker.PeriodicWorker class, this will ensure your worker module has boilerplate connectivity to the database, and configurations.  The 'callback' function fires at the interval your analysis module is configured to.
+This file contains the implementation of your worker module. Subclass the [PeriodicWorker][machina.core.periodic_worker.PeriodicWorker] class, this will ensure your worker module has boilerplate connectivity to the database, and configurations.  The [callback][machina.core.periodic_worker.PeriodicWorker.callback] function fires at the interval your analysis module is configured to.
 
 ```python linenums="1" title="youranalysismodule.py"
 class YourAnalysisModule(PeriodicWorker):
@@ -40,7 +40,7 @@ class YourAnalysisModule(PeriodicWorker):
 
 The PeriodicWorker provides some common triggers that can be used to further constrain execution at the configured interval.  
 
-For example, 'n_nodes_added_since' can be used to fire an analysis only if 1,000 new nodes of class type 'Elf' have been added within the last 1 hour.  These available triggers are documented within the machina core API.
+For example, 'n_nodes_added_since' can be used to fire an analysis only if 1,000 new nodes of class type [Elf][machina.core.models.Elf] have been added within the last 1 hour.  These available triggers are documented within the machina core API.
 
 ```python linenums="1" title="youranalysismodule.py using trigger"
 from datetime import timedelta
@@ -66,8 +66,8 @@ class YourAnalysisModule(PeriodicWorker):
 This top-level configuration file belongs in machina/configs/workers/youranalysismodule.json.  This file allows for reconfiguration without rebuilding of images or code.  This file
 must be named after the worker class name that it corresponds to.  
 
-Configuration data set in this file is made available through the worker module's 'self.config["worker"] attribute.
-Log level is handled by the PeriodicWorker base class to automatically adjust the subclass logging level if it is overridden in the configuration.  The interval for invoking 'callback' is  also handled by the PeriodicWorker base class, and can be overridden in the configuration.
+Configuration data set in this file is made available through the worker module's 'self.config["worker"]' attribute.
+Log level is handled by the [PeriodicWorker][machina.core.periodic_worker.PeriodicWorker] base class to automatically adjust the subclass logging level if it is overridden in the configuration.  The interval for invoking [callback][machina.core.periodic_worker.PeriodicWorker.callback] is also handled by the [PeriodicWorker][machina.core.periodic_worker.PeriodicWorker] base class, and can be overridden in the configuration.
 
 ```json linenums="1" title="machina/configs/workers/YourAnalyisModule.json.  This module is configured to fire every minute"
 {

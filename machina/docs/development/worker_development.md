@@ -26,7 +26,7 @@ Put any Python 3 requirements required by your worker module into requirements.t
 
 ## youranalysismodule.py
 
-This file contains the implementation of your worker module. subclass the machina.core.worker.Worker class, this will ensure your worker module has boilerplate connectivity to the database, RabbitMQ, and configurations. Choose any Machina types (see 'machina/configs/types.json') your worker module supports, or specify '*' for all. The 'callback' function provides your analysis implementation with data that your module is configured to support. This callback function fires whenever the system identifies a compatible sample.
+This file contains the implementation of your worker module. subclass the [Worker][machina.core.worker.Worker] class, this will ensure your worker module has boilerplate connectivity to the database, RabbitMQ, and configurations. Choose any Machina types (see 'machina/configs/types.json') your worker module supports, or specify '*' for all. The [callback][machina.core.worker.Worker.callback] function provides your analysis implementation with data that your module is configured to support. This callback function fires whenever the system identifies a compatible sample.
 
 
 ```python linenums="1" title="module that handles zip files"
@@ -86,7 +86,7 @@ Typically, since workers are handling data published by the Identifier, they inh
 
 ## YourAnalysisModule.json (configuration)
 
-This top-level configuration file belongs in machina/configs/workers/youranalysismodule.json.  This file allows for reconfiguration without rebuilding of images or code.  This file must be named after the worker class name that it corresponds to.  Configuration data set in this file is made available through the worker module's 'self.config["worker"] attribute. Log level is handled by the Worker base class to automatically adjust the subclass logging level if it is overridden in the configuration.
+This top-level configuration file belongs in machina/configs/workers/youranalysismodule.json.  This file allows for reconfiguration without rebuilding of images or code.  This file must be named after the worker class name that it corresponds to.  Configuration data set in this file is made available through the worker module's 'self.config["worker"]' attribute. Log level is handled by the [Worker][machina.core.worker.Worker] base class to automatically adjust the subclass logging level if it is overridden in the configuration.
 
 ```json linenums="1" title="machina/configs/workers/YourAnalyisModule.json.  This module contains additional configurations for hash algorithms to run"
 {
@@ -108,7 +108,7 @@ def callback(self, data, properties):
 
 ### Republishing
 
-Worker modules are not intended to create new nodes (e.g. files, binary data) in the database directly, only update elements or create edges (relationships). They should publish any extracted data of interest to the Identifier queue so that it re-enters the pipeline, e.g.:
+Worker modules are not intended to create new nodes (e.g. files, binary data) in the database directly, only update node attributes or create edges (relationships). They should publish any extracted data of interest to the Identifier queue so that it re-enters the pipeline, e.g.:
 
 ```python linenums="1" title="publishing data to the Identifier module"
 class YourAnalysisModule(Worker):
@@ -129,8 +129,6 @@ class MyWorker(Worker):
         ...
         self.publish(json.dumps(data), queues=['Identifier']) # publish to 'Identifier'
 ```
-
-When updating elements in the database, it is highly recommended to use the the Worker base class' update_node or create_edge functions. These functions attempt to avoid updating a stale/out-of-date handle to a database element.
 
 ### Retyping
 

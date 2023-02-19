@@ -70,7 +70,7 @@ nav:
     - Periodic Worker Development: development/periodic_worker_development.md
     - API:
       - Worker API: development/api/worker.md
-      - Ghidra Worker API: development/api/hidra_worker.md
+      - Ghidra Worker API: development/api/ghidra_worker.md
       - Periodic Worker API: development/api/periodic_worker.md
       - Model API: development/api/model.md
 

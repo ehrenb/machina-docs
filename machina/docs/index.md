@@ -1,7 +1,6 @@
 # Welcome to the Machina documentation
 
-Machina is a scalable and modular analysis framework.  
-This framework enables rapid integration of both existing open source and novel analysis as worker modules. 
+Machina is a scalable and modular analysis framework.  Machina enables the rapid integration of both existing open source and novel analysis as worker modules. 
 
 Machina's key features
 

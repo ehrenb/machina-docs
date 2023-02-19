@@ -12,7 +12,6 @@ Base image options:
 Dockerfile example:
 
 ```dockerfile linenums="1" title="Dockerfile"
-:caption: example dockerfile
 
 FROM behren/machina-base-ghidra:latest
 ...
@@ -26,11 +25,9 @@ Put any Python 3 requirements required by your worker module into requirements.t
 
 ## youranalysismodule.py
 
-This file contains the implementation of your worker module. subclass the machina.core.ghidra_worker.GhidraWorker class, this will ensure your worker module has boilerplate connectivity to the database, RabbitMQ, and configurations.  
-Choose any Machina types (see 'machina/configs/types.json') your worker module supports, or specify '*' for all. 
+This file contains the implementation of your worker module. subclass the [GhidraWorker][machina.core.ghidra_worker.GhidraWorker] class, this will ensure your worker module has boilerplate connectivity to the database, RabbitMQ, and configurations.  Choose any Machina types (see 'machina/configs/types.json') your worker module supports, or specify '*' for all. 
 
-
-The 'callback' function provides your analysis implementation with data that your module is configured to support.  This callback function fires whenever the system identifies a compatible sample.
+The [callback][machina.core.ghidra_worker.GhidraWorker] function provides your analysis implementation with data that your module is configured to support.  This callback function fires whenever the system identifies a compatible sample.
 
 
 ```python linenums="1"
@@ -71,7 +68,7 @@ Typically, since workers are handling data published by the Identifier, they inh
 ## YourAnalysisModule.json (configuration)
 
 This top-level configuration file belongs in machina/configs/workers/youranalysismodule.json.  This file allows for reconfiguration without rebuilding of images or code.  This file
-must be named after the worker class name that it corresponds to.  Configuration data set in this file is made available through the worker module's 'self.config["worker"] attribute.
+must be named after the worker class name that it corresponds to.  Configuration data set in this file is made available through the worker module's 'self.config["worker"]' attribute.
 Log level is handled by the Worker base class to automatically adjust the subclass logging level if it is overridden in the configuration.
 
 ```json linenums="1" title="machina/configs/workers/YourAnalyisModule.json.  This module contains additional configurations for analysis timeout"
