@@ -19,3 +19,5 @@ a message with the classified type as the routing key.  This message is consumed
 prioritizes "detailed type" data over "mimetype" for classification.
 
 <img src="./res/images/machina.drawio.png" width="800">
+
+This documentation is also available in [PDF](./machina-docs.pdf)

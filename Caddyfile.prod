@@ -2,7 +2,7 @@
 http://machina.behren.me http://www.machina.behren.me
 
 file_server {
-    root    /machina/docs/build/html
+    root    /docs/machina/site
 }
 
 log {
