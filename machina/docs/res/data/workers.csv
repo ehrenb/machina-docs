@@ -8,7 +8,7 @@ ghidra-project-creator,Perform default Ghidra analysis on executable files,"elf,
 gzip,Decompress gzip data and resubmit extracted files,gz,https://github.com/ehrenb/machina-gzip
 identifier,Classify input data and apply Machina type data,all,https://github.com/ehrenb/machina-identifier
 jar,Detect APK from JAR format and resubmit data as APK,jar,https://github.com/ehrenb/machina-jar
-similarity,Analyze previously determined SSDeep hash with a configured threshold to create a 'similarity' edge between nodes,"None, invoked by ssdeep",https://github.com/ehrenb/machina-similarity
+similarity,Analyze previously determined SSDeep hash with a configured threshold to create a 'similarity' edge between nodes,"None, invoked at interval",https://github.com/ehrenb/machina-similarity
 ssdeep,Calculate SSDeep hash of file,all,https://github.com/ehrenb/machina-ssdeep
 tar,"Unarchive a tar file, resubmit all extracted files for analysis",tar,https://github.com/ehrenb/machina-tar
 zip,"Unzip a zip file, resubmit all extracted files for analysis",zip,https://github.com/ehrenb/machina-zip

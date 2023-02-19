@@ -1,13 +1,6 @@
-.. machina documentation master file, created by
-   sphinx-quickstart on Sun Dec 25 19:28:40 2022.
-   You can adapt this file completely to your liking, but it should at least
-   contain the root `toctree` directive.
+# Welcome to the Machina documentation
 
-Welcome to machina's documentation!
-===================================
-
-Machina is a scalable and modular analysis framework.  
-This framework enables rapid integration of both existing open source and novel analysis as worker modules. 
+Machina is a scalable and modular analysis framework.  Machina enables the rapid integration of both existing open source and novel analysis as worker modules. 
 
 Machina's key features
 
@@ -24,32 +17,6 @@ When data is submitted to the pipeline (directly to the Identifier queue), the I
 a message with the classified type as the routing key.  This message is consumed by all Worker Modules that are configured to support that type.  The Identifier
 prioritizes "detailed type" data over "mimetype" for classification.
 
-.. image:: images/machina.drawio.png
-   :width: 800
-   :alt: architecture
+<img src="./res/images/machina.drawio.png" width="800">
 
-.. toctree::
-   :maxdepth: 2
-   :caption: Contents:
-
-   installation
-   administration
-   submission
-   workers
-   worker_development/index
-
-.. toctree::
-   :maxdepth: 2
-   :caption: API:
-
-   machina
-   machina.core
-   machina.core.models.nodes
-   machina.core.models.relationships
-
-Indices and tables
-==================
-
-* :ref:`genindex`
-* :ref:`modindex`
-* :ref:`search`
+This documentation is also available in [PDF](./machina-docs.pdf)
