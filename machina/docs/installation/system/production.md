@@ -9,7 +9,8 @@ git clone https://github.com/ehrenb/machina.git
 ## Update/Pull
 
 ```bash linenums="1"
-docker compose pull
+cd machina && \
+    docker compose pull
 ```
 
 !!! note
